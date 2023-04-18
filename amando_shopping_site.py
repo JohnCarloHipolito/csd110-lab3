@@ -23,11 +23,11 @@ def add_product(c):
             v = input("Enter the brand name: ")
             new_items.update({k: v})
 
-    c.update(new_items)
-
-    print("You added the following items to the cart:")
-    for k, v in new_items.items():
-        print(f"{k}: {v}")
+    if len(new_items) > 0:
+        c.update(new_items)
+        print("You added the following items to the cart:")
+        for k, v in new_items.items():
+            print(f"{k}: {v}")
 
 
 def search_product(c):
