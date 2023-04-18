@@ -47,14 +47,23 @@ def delete_product(c):
         print("Cart is empty, no item is found")
 
 
+def wrong_choice():
+    print("Wrong Option Entered.")
+
+
 # Main flow
 display_prompt()
 quit_app = False
 cart = {}
 while not quit_app:
     choice = enter_choice()
-    if   choice == '1': add_product(cart)
-    elif choice == '2': search_product(cart)
-    elif choice == '3': delete_product(cart)
-    elif choice == '4': quit_app = True
-    else: print("Wrong Option Entered.")
+    if choice == '1':
+        add_product(cart)
+    elif choice == '2':
+        search_product(cart)
+    elif choice == '3':
+        delete_product(cart)
+    elif choice == '4':
+        quit_app = True
+    else:
+        wrong_choice()
