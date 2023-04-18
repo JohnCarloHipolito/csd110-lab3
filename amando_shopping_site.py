@@ -15,6 +15,7 @@ def add_product(c):
     new_items = {}
 
     for _ in range(count):
+        # allow items to be added until cart is full
         if len(c) + len(new_items) == 5:
             print("Cart is full")
             break
@@ -40,6 +41,7 @@ def search_product(c):
 
 def delete_product(c):
     if len(c) > 0:
+        # delete the last entered product
         k, v = c.popitem()
         print("You deleted the following item on the cart:")
         print(f"{k}: {v}")
