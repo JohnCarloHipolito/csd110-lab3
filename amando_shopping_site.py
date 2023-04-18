@@ -10,12 +10,12 @@ def enter_choice():
     return input("\nEnter your choice: ")
 
 
-def add_product(p):
+def add_product(c):
     count = int(input("Enter the number of items to be added to stationary shop: "))
     new_items = {}
 
     for _ in range(count):
-        if len(p) + len(new_items) == 5:
+        if len(c) + len(new_items) == 5:
             print("Cart is full")
             break
         else:
@@ -23,24 +23,24 @@ def add_product(p):
             v = input("Enter the brand name: ")
             new_items.update({k: v})
 
-    p.update(new_items)
+    c.update(new_items)
 
     print("You added the following items to the cart:")
     for k, v in new_items.items():
         print(f"{k}: {v}")
 
 
-def search_product(p):
+def search_product(c):
     item = input("Enter the item to be search: ")
-    if item in p:
-        print(f"{item}: {p[item]}")
+    if item in c:
+        print(f"{item}: {c[item]}")
     else:
         print("No product exists with this name")
 
 
-def delete_product(p):
-    if len(p) > 0:
-        k, v = p.popitem()
+def delete_product(c):
+    if len(c) > 0:
+        k, v = c.popitem()
         print("You deleted the following item on the cart:")
         print(f"{k}: {v}")
     else:
@@ -50,16 +50,11 @@ def delete_product(p):
 # Main flow
 display_prompt()
 quit_app = False
-product = {}
+cart = {}
 while not quit_app:
     choice = enter_choice()
-    if choice == '1':
-        add_product(product)
-    elif choice == '2':
-        search_product(product)
-    elif choice == '3':
-        delete_product(product)
-    elif choice == '4':
-        quit_app = True
-    else:
-        print("Wrong Option Entered.")
+    if   choice == '1': add_product(cart)
+    elif choice == '2': search_product(cart)
+    elif choice == '3': delete_product(cart)
+    elif choice == '4': quit_app = True
+    else: print("Wrong Option Entered.")
